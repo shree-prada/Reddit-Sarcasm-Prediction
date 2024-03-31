@@ -26,8 +26,10 @@ The project includes a Jupyter notebook with the following:
 To get started with the project, follow these steps:
 
 1. Clone the repository: 
+##
    git clone https://github.com/shree-prada/Reddit-Sarcasm-Prediction.git
 2. Install the required dependencies: 
+##
   pip install -r requirements.txt
 3. Explore the Jupyter notebook and follow the steps to train and evaluate the model.
 
