@@ -1,5 +1,4 @@
-# reddit_sarcasm_prediction
-Reddit Scarcasm Prediction
+# Reddit Sarcasm Prediction
 
 A Statistical Model to predict whether it is a sarcastic comment or not.
 
