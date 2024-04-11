@@ -1,46 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
+  <title>Sarcasm Prediction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Century Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sarcasm Analyser using Deep Learning">
-  <meta name="author" content="David Martín-Gutiérrez">
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../static/img/background.jpg);
+      height: 100vh;
+      background-position: center;
+      overflow: hidden;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  <title>Sarcasm Detector</title>
-  <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
-  <link href="http://flask.pocoo.org/docs/0.12/_static/flask-favicon.ico" rel="icon">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    .container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 8px;
+      width: 600px;
+      height: 400px;
+      overflow: auto;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
+    .container h1 {
+      margin-bottom: 16px;
+      font-size: 28px;
+      white-space: nowrap; /* Keep the title in a single line */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #000;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #333;
+    }
+
+    .prediction {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container" id="containerIndex">
+  <div class="container">
+    <h1>Sarcasm Prediction</h1>
+    <form action="/predict" method="post">
+      <label for="input_sentence">Enter a Sentence:</label>
+      <textarea name="input_sentence" id="input_sentence" rows="4" required></textarea>
 
-    <div class="d-flex justify-content-center">
-          <div class="jumbotron" style="background:transparent !important">
-             <heading> <strong>Welcome to the Sarcasm detector!</strong></heading>
-          </div>
-      </div>
-
-    <div class="container">
-      <form action="{{url_for('predict')}}" method="POST">
-      <div class="input-group">
-        <input type="text" class="form-control input-lg" name="input" placeholder="Your sentence to be analysed" autocomplete="off" autofocus>
-        <div class="input-group-btn">
-          <button class="btn btn-primary btn-lg" type="submit">
-            <i class="fas fa-check-circle"></i>
-          </button>
-        </div>
-      </div>
+      <input type="submit" value="Predict Sarcasm">
     </form>
+    {% if prediction %}
+    <div class="prediction">
+      <b>Prediction:</b> {{ prediction }}
     </div>
-
-
-
+    {% endif %}
   </div>
 </body>
-
 </html>
