@@ -26,14 +26,14 @@ The project includes a Jupyter notebook with the following:
 To get started with the project, follow these steps:
 
 1. Clone the repository: git clone https://github.com/shree-prada/Reddit-Sarcasm-Prediction.git
-2. Install the required dependencies: pip install -r requirements.txt
+2. Install the required dependencies
 3. Explore the Jupyter notebook and follow the steps to train and evaluate the model.
 
 ## Model
-The machine learning model used for this project is a SVM. The model is trained on the training set and evaluated on the testing set.
+The machine learning model used for this project is a Custom LSTM. The model is trained on the training set and evaluated on the testing set.
 
 ## Results
-The model achieved an accuracy of 86.5% on the testing set.
+The model achieved an accuracy of 62% on the testing set.
 
 ## Contribution Guidelines
 We welcome contributions to the project. If you would like to contribute, please follow these steps:
