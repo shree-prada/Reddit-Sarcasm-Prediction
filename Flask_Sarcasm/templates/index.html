@@ -85,7 +85,7 @@
 
       <input type="submit" value="Predict Sarcasm">
     </form>
-    {% if prediction %}
+    {% if prediction is defined %}
     <div class="prediction">
       <b>Prediction:</b> {{ prediction }}
     </div>
